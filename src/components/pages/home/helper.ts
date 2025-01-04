@@ -1,10 +1,11 @@
-// function to call service at page level
+import services from '../../../services/movies/services';
 
-// example
-// const getDetailCertificate = async (payload) => {
-//   try {
-//     return await services.getDetailCertificate(payload);
-//   } catch (err) {
-//     throw Error(err);
-//   }
-// };
+const getMovies = async () => {
+  try {
+    return await services.fetchMovieList();
+  } catch (err: Error | any) {
+    throw Error(err);
+  }
+};
+
+export { getMovies };

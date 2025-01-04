@@ -1,10 +1,19 @@
-// list functions
+import api from '../api';
+import movieEndpoint from './endpoints';
 
-// example
+const fetchMovieList = async () => {
+  const response = await api.get(`${movieEndpoint.getMovie}`);
+  const { data } = response;
+  return { ...data.results };
+};
 
-// const getDetailCertificate = (payload) => api.get(endpoint.GET_DETAIL_CERTIFICATE + payload);
-// const services = {
-//   getDetailCertificate
-// };
+const fetchMovieDetail = async (title: string) => {
+  const response = await api.get(`${movieEndpoint.getMovie}/${title}`);
+  return response.data;
+};
 
-// export default services;
+const services = {
+  fetchMovieList,
+  fetchMovieDetail,
+};
+export default services;
