@@ -1,10 +1,10 @@
 import api from '../api';
 import movieEndpoint from './endpoints';
 
-const fetchMovieList = async () => {
-  const response = await api.get(`${movieEndpoint.getMovie}`);
+const fetchMovieList = async (pageSize: number) => {
+  const response = await api.get(`${movieEndpoint.getMovie}?limit=${pageSize}`);
   const { data } = response;
-  return { ...data.results };
+  return data.results;
 };
 
 const fetchMovieDetail = async (title: string) => {
