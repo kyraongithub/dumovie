@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { getMovies } from './helper';
 
 const useHome = () => {
-  const [page, setpage] = useState<number>(32);
+  const [page, setpage] = useState<number>(1);
   const getMovieList = useCallback(async () => getMovies(page), [page]);
 
   const movieList = useQuery({
