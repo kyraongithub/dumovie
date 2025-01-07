@@ -1,28 +1,36 @@
 import Card from '../../UI/card';
 import useHome from './useHome';
 import styles from './home.module.css';
+
 const HomeView = () => {
-  const { movieList, setpageSize } = useHome();
+  const { movieList, setpage, page, isLoading } = useHome();
 
   return (
-    <div>
+    <div className={styles.home}>
+      <img className={styles.banner} src="/public/dumovie.jpeg" alt="banner" />
       <div className={styles.container}>
-        {movieList?.map((movie: any) => (
+        {movieList?.map((movie: any, index: number) => (
           <Card
-            key={movie.id}
+            key={index}
             text={movie.originalTitleText.text}
             thumbnail={movie.primaryImage}
             onClick={() => alert(movie.originalTitleText.text)}
           />
         ))}
       </div>
-      {movieList?.length > 0 && (
-        <p
-          style={{ cursor: 'pointer', textAlign: 'center' }}
-          onClick={() => setpageSize((prev) => prev + 10)}
-        >
-          load more
-        </p>
+      {!isLoading && (
+        <div className={styles.pagination}>
+          {page > 1 && (
+            <button onClick={() => setpage((prev) => prev - 1)}>
+              Prev Page
+            </button>
+          )}
+          {movieList?.length > 0 && (
+            <button onClick={() => setpage((prev) => prev + 1)}>
+              Next Page
+            </button>
+          )}
+        </div>
       )}
     </div>
   );

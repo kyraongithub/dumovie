@@ -2,7 +2,7 @@ import api from '../api';
 import movieEndpoint from './endpoints';
 
 const fetchMovieList = async (pageSize: number) => {
-  const response = await api.get(`${movieEndpoint.getMovie}?limit=${pageSize}`);
+  const response = await api.get(`${movieEndpoint.getMovie}?page=${pageSize}`);
   const { data } = response;
   return data.results;
 };

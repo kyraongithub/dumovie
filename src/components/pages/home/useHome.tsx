@@ -3,15 +3,20 @@ import { useCallback, useState } from 'react';
 import { getMovies } from './helper';
 
 const useHome = () => {
-  const [pageSize, setpageSize] = useState<number>(10);
-  const getMovieList = useCallback(async () => getMovies(pageSize), [pageSize]);
+  const [page, setpage] = useState<number>(32);
+  const getMovieList = useCallback(async () => getMovies(page), [page]);
 
   const movieList = useQuery({
-    queryKey: ['movieList', pageSize],
+    queryKey: ['movieList', page],
     queryFn: getMovieList,
   });
 
-  return { movieList: movieList.data, setpageSize };
+  return {
+    movieList: movieList.data,
+    isLoading: movieList.isLoading,
+    setpage,
+    page,
+  };
 };
 
 export default useHome;

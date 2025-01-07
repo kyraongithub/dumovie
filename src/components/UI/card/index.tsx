@@ -13,7 +13,11 @@ const Card = (props: CardProps) => {
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
     >
-      <img className={styles.cardImage} src={thumbnail?.url ?? ''} alt={text} />
+      <img
+        className={styles.cardImage}
+        src={thumbnail?.url ?? '/public/movie.jpeg'}
+        alt={text}
+      />
       {isHovered && <b className={styles.cardText}>{text}</b>}
     </div>
   );

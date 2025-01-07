@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  height: 5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: rgb(196, 172, 15);
+}
+
+.container {
+  width: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
