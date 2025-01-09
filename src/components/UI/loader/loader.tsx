@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import styles from './Loader.module.css';
+import styles from './loader.module.css';
 import { LoaderProps } from './loader.interface';
 
 const LoaderSkeleton = (props: LoaderProps) => {
