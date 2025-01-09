@@ -1,6 +1,8 @@
 import Card from '../../UI/card';
 import useHome from './useHome';
 import styles from './home.module.css';
+import LoaderSkeleton from '../../UI/loader';
+import { Movie } from './movie.interface';
 
 const HomeView = () => {
   const { movieList, setpage, page, isLoading } = useHome();
@@ -9,7 +11,12 @@ const HomeView = () => {
     <div className={styles.home}>
       <img className={styles.banner} src="/public/dumovie.jpeg" alt="banner" />
       <div className={styles.container}>
-        {movieList?.map((movie: any, index: number) => (
+        {
+          isLoading && Array.from({length:10}).map((_, i) => (
+            <LoaderSkeleton radius={10} width={220} height={320} key={i}/>
+          ))
+        }
+        {!isLoading && movieList?.map((movie: Movie, index: number) => (
           <Card
             key={index}
             text={movie.originalTitleText.text}
