@@ -15,7 +15,7 @@ const Card = (props: CardProps) => {
     >
       <img
         className={styles.cardImage}
-        src={thumbnail?.url ?? '/public/movie.jpeg'}
+        src={thumbnail?.url ?? '/movie.jpeg'}
         alt={text}
       />
       {isHovered && <b className={styles.cardText}>{text}</b>}

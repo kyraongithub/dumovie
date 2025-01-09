@@ -9,7 +9,7 @@ const HomeView = () => {
 
   return (
     <div className={styles.home}>
-      <img className={styles.banner} src="/public/dumovie.jpeg" alt="banner" />
+      <img className={styles.banner} src="/dumovie.jpeg" alt="banner" />
       <div className={styles.container}>
         {
           isLoading && Array.from({length:10}).map((_, i) => (
